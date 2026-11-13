@@ -1,0 +1,12 @@
+{
+  "name": "group-live-chat",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A password-protected group chat with live updates",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

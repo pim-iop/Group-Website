@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f7f7f5">
+    <title>Group Chat</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <main class="page-shell">
+      <section id="login-view" class="login-card" aria-labelledby="login-title">
+        <a class="brand login-brand" href="/" aria-label="Gather home">
+          <span class="brand-mark" aria-hidden="true">g.</span>
+          <span>gather<span class="brand-period">.</span></span>
+        </a>
+        <div class="login-art" aria-hidden="true">
+          <span class="art-orbit orbit-one"></span>
+          <span class="art-orbit orbit-two"></span>
+          <span class="art-spark spark-one">✳</span>
+          <span class="art-spark spark-two">✦</span>
+          <span class="art-center">g</span>
+          <span class="art-caption">a little corner<br>for your people</span>
+        </div>
+        <p class="eyebrow">YOUR PEOPLE, IN ONE PLACE</p>
+        <h1 id="login-title">Good things happen<br>when we <span>gather.</span></h1>
+        <p class="intro">A space for your group to catch up, make plans, and keep each other in the loop.</p>
+        <form id="login-form" class="form-stack">
+          <label for="login-name">YOUR NAME</label>
+          <input id="login-name" name="name" placeholder="How should we call you?" autocomplete="name" maxlength="30" required>
+          <label for="login-password">GROUP PASSWORD</label>
+          <input id="login-password" name="password" type="password" placeholder="Enter your group's password" autocomplete="current-password" required>
+          <p id="login-error" class="error-message" role="alert"></p>
+          <button class="primary-button" type="submit">Come on in <span aria-hidden="true">↗</span></button>
+        </form>
+        <p class="login-footnote"><span class="lock-icon" aria-hidden="true">◆</span> A private space, just for your group</p>
+        <p class="copyright">Copyright Prime</p>
+      </section>
+
+      <section id="chat-view" class="chat-layout" hidden aria-label="Group chat">
+        <header class="topbar">
+          <a class="brand" href="/" aria-label="Group chat home">
+            <span class="brand-mark small" aria-hidden="true">g.</span>
+            <span>gather<span class="brand-period">.</span></span>
+          </a>
+          <div class="topbar-right">
+            <span id="connection-status" class="connection-status"><span class="status-dot"></span> Connecting</span>
+            <span id="current-user" class="user-chip"></span>
+            <button id="logout-button" class="text-button" type="button">Sign out</button>
+          </div>
+        </header>
+
+        <div class="workspace">
+          <section class="conversation-panel" aria-label="Conversation">
+            <header class="conversation-heading">
+              <div class="group-avatar" aria-hidden="true"><span>✳</span></div>
+              <div class="group-title">
+                <p class="eyebrow">GROUP SPACE</p>
+                <h1 id="group-title">Our Group</h1>
+                <p class="member-note"><span class="status-dot"></span> Live with your group</p>
+              </div>
+              <button id="rename-button" class="secondary-button" type="button">
+                <span aria-hidden="true">✎</span> Change name
+              </button>
+            </header>
+
+            <div id="rename-panel" class="rename-panel" hidden>
+              <form id="rename-form" class="rename-form">
+                <label for="group-name-input">New group name</label>
+                <div class="rename-controls">
+                  <input id="group-name-input" maxlength="40" required>
+                  <button class="primary-button compact" type="submit">Save name</button>
+                  <button id="cancel-rename" class="text-button" type="button">Cancel</button>
+                </div>
+                <p id="rename-error" class="error-message" role="alert"></p>
+              </form>
+            </div>
+
+            <div id="message-list" class="message-list" role="log" aria-live="polite" aria-label="Chat messages">
+              <div id="empty-chat" class="empty-state">
+                <div class="empty-icon" aria-hidden="true">✳</div>
+                <h2>Make yourself at home</h2>
+                <p>Say hello to your group to get things started.</p>
+              </div>
+            </div>
+
+            <form id="message-form" class="composer">
+              <label class="sr-only" for="message-input">Write a message</label>
+              <input id="message-input" name="text" maxlength="500" placeholder="Write a message..." autocomplete="off" required>
+              <span class="composer-hint">Enter to send</span>
+              <button class="send-button" type="submit" aria-label="Send message"><span aria-hidden="true">↑</span></button>
+            </form>
+            <p id="message-error" class="error-message composer-error" role="alert"></p>
+          </section>
+
+          <aside class="activity-panel" aria-label="Live changes">
+            <div class="activity-heading">
+              <div class="activity-title-wrap">
+                <span class="activity-icon-large" aria-hidden="true">✳</span>
+                <div>
+                <p class="eyebrow">HAPPENING NOW</p>
+                <h2>Live changes</h2>
+                </div>
+              </div>
+              <span class="live-pill"><span class="status-dot"></span> LIVE</span>
+            </div>
+            <p class="activity-description">See what's changing in your group, as it happens.</p>
+            <div id="activity-list" class="activity-list" role="log" aria-live="polite" aria-label="Live group changes">
+              <p id="empty-activity" class="activity-empty">Group updates will show up here.</p>
+            </div>
+            <div class="activity-footer"><span aria-hidden="true">✳</span> <span class="footer-credit">Made for your group</span><span class="footer-copyright">Copyright Prime</span></div>
+          </aside>
+        </div>
+      </section>
+    </main>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
